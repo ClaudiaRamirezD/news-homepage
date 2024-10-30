@@ -54,6 +54,7 @@ header {
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    position: relative; 
 }
 
 .backdrop {
@@ -70,7 +71,10 @@ header {
 }
 
 .nav-links {
-    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--clr-off-white);
     width: 70vw;
     height: 100vh;
     padding: 2rem;
@@ -79,9 +83,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    transition: transform 0.3s ease; /* Smooth transition */
-    transform: translateX(100%); /* Initially off-screen */
 }
+
 
 /* When menu is open */
 .backdrop.open {
@@ -210,6 +213,42 @@ nav img {
     color: var(--clr-very-dark);
     font-weight: var(--fw-regular);
     opacity: .7;
+    cursor: pointer;
+}
+
+.nav-links li:hover {
+    color: var(--clr-red);
 }
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 60rem){
+    .menu-img {
+        display: none;
+    }
+
+    .backdrop {
+        display: flex;
+        background: none;
+    }
+
+    .nav-links {
+        background: none;
+        transform: none; /* No transform on larger screens */
+        height: auto; /* Auto height */
+        visibility: visible; /* Ensure visibility */
+        opacity: 1; /* Ensure opacity */
+        display: flex; /* Show links in a row */
+        flex-direction: row; /* Horizontal layout */
+        gap: 2rem; /* Space between nav items */
+        list-style: none; /* Remove default list styling */
+        padding: 4rem;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+
+    .menu-close{
+        display: none;
+    }
+
+} 
