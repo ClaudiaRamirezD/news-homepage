@@ -29,7 +29,9 @@ body {
 
 .container {
     width: 100%;
-    padding: 3rem 1.5rem;
+    /* padding: 3rem 1.5rem; */
+    padding-block: clamp(3rem, 0.5352rem + 6.5728vw, 10rem);
+    padding-inline: clamp(1.5rem, -0.4366rem + 5.1643vw, 7rem);
     box-sizing: border-box;
     display: grid;
     gap: 3rem;
@@ -147,6 +149,11 @@ aside h3 {
     color: var(--clr-off-white);
     font-size: 2rem;
     padding-top: 2.7rem;
+    cursor: pointer;
+}
+
+aside h3:hover {
+    color: var(--clr-orange);
 }
 
 aside p{
@@ -253,6 +260,10 @@ h4:hover {
 }
 
 @media (min-width: 60rem){
+
+    .container {
+        padding: 8rem 7rem;
+    }
 
     .menu-img, .menu-close {
         display: none;
