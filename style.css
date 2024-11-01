@@ -134,20 +134,20 @@ h1 {
 aside {
     background-color: var(--clr-very-dark);
     padding: 2.5rem 2rem;
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 1.1765rem + 1.1294vw, 2rem);
     margin-block: 3rem;
-    /* grid-area: aside; */
 }
 
 h2 {
     color: var(--clr-orange);
-    font-size: 3rem;
+    font-size: clamp(3rem, 2.9118rem + 0.2353vw, 3.5rem);
     
 }
 
 aside h3 {
     color: var(--clr-off-white);
-    font-size: 2rem;
+    font-size: clamp(2rem, 1.8235rem + 0.4706vw, 3rem);
+    line-height: 1.2;
     padding-top: 2.7rem;
     cursor: pointer;
 }
@@ -203,7 +203,6 @@ article {
 .card-text-p {
     font-size: var(--fs-p);
     color: var(--clr-dark-grayish);
-    font-weight: var(--fw-regular);
     opacity: .8;
     line-height: 1.7;
 }
@@ -234,7 +233,7 @@ nav img {
 }
 
 .nav-links li{
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 1.4118rem + 1.0353vw, 4rem);
     color: var(--clr-very-dark);
     font-weight: var(--fw-regular);
     opacity: .7;
@@ -259,10 +258,15 @@ h4:hover {
     color: var(--clr-red);
 }
 
+.logo img {
+    width: clamp(6.5rem, 5.7059rem + 2.1176vw, 11rem);
+    height: auto;
+}
+
 @media (min-width: 60rem){
 
     .container {
-        padding: 8rem 7rem;
+        margin: 0 auto;
     }
 
     .menu-img, .menu-close {
@@ -289,7 +293,7 @@ h4:hover {
         opacity: 1; /* Ensure opacity */
         display: flex; /* Show links in a row */
         flex-direction: row; /* Horizontal layout */
-        gap: 2rem; /* Space between nav items */
+        gap: clamp(2rem, 1.4706rem + 1.4118vw, 5rem);
         list-style: none; /* Remove default list styling */
         padding: 0; /* Remove padding for better alignment */
         margin: 0; /* Ensure margin doesn’t shift links */
@@ -303,8 +307,6 @@ h4:hover {
     .hero-text{
         grid-area: hero-text;
         display: flex; 
-        align-items: stretch;
-        align-items: center;
     }
 
     .flex-heading {
@@ -324,6 +326,7 @@ h4:hover {
         grid-area: article;
         flex-direction: row;
         margin-top: 4rem;
+        gap: 1rem;
     }
 
     .hero-content {
@@ -333,4 +336,22 @@ h4:hover {
         'article article article';
     }
 
+    .card img {
+        max-width: 20rem;
+    }
+
+    .card-text-p {
+        font-size: clamp(1.5rem, 1.4118rem + 0.2353vw, 2rem);
+    }
+
 } 
+
+@media (min-width: 120rem) {
+
+    .container {
+        max-width: 70%;
+    }
+    .nav-links li {
+        font-size: clamp(2.4rem, 2.0182rem + 0.3182vw, 4.5rem);
+    }
+}
